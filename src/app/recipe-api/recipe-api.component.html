@@ -1,0 +1,41 @@
+<div class="pad"></div>
+<div *ngFor="let recipe of recipes" class="card mb-3">
+  <div class="row">
+    <img class="card-img-top img-fluid col-md-12" src="{{recipe.strMealThumb}}" alt="Card image cap">
+    <div class="card-body col-md-12">
+      <h2 class="card-title">{{recipe.strMeal}}</h2>
+      <div class="row">
+      <div class="col-md-6">
+      <h4>Ingredients</h4>
+      <p *ngIf="recipe.strIngredient1!=null" class="card-text">{{recipe.strIngredient1}}  : {{recipe.strMeasure1}}</p>
+      <p *ngIf="recipe.strIngredient2!=null"class="card-text">{{recipe.strIngredient2}}  : {{recipe.strMeasure2}}</p>
+      <p *ngIf="recipe.strIngredient3!=null"class="card-text">{{recipe.strIngredient3}}  : {{recipe.strMeasure3}}</p>
+      <p *ngIf="recipe.strIngredient4!=null"class="card-text">{{recipe.strIngredient4}}  : {{recipe.strMeasure4}}</p>
+      <p *ngIf="recipe.strIngredient5!=null"class="card-text">{{recipe.strIngredient5}}  : {{recipe.strMeasure5}}</p>
+      <p *ngIf="recipe.strIngredient6!=null"class="card-text">{{recipe.strIngredient6}}  : {{recipe.strMeasure6}}</p>
+      <p *ngIf="recipe.strIngredient7!=null"class="card-text">{{recipe.strIngredient7}}  : {{recipe.strMeasure7}}</p>
+      <p *ngIf="recipe.strIngredient8!=null"class="card-text">{{recipe.strIngredient8}}  : {{recipe.strMeasure8}}</p>
+      <p *ngIf="recipe.strIngredient9!=null"class="card-text">{{recipe.strIngredient9}}  : {{recipe.strMeasure9}}</p>
+      <p *ngIf='recipe.strIngredient10!=""'class="card-text">{{recipe.strIngredient10}}  : {{recipe.strMeasure10}}</p>
+      <p *ngIf='recipe.strIngredient11!=""'class="card-text">{{recipe.strIngredient11}}  : {{recipe.strMeasure11}}</p>
+      <p *ngIf='recipe.strIngredient12!=""'class="card-text">{{recipe.strIngredient12}}  : {{recipe.strMeasure12}}</p>
+      <p *ngIf='recipe.strIngredient13!=""'class="card-text">{{recipe.strIngredient13}}  : {{recipe.strMeasure13}}</p>
+      <p *ngIf='recipe.strIngredient14!=""'class="card-text">{{recipe.strIngredient14}}  : {{recipe.strMeasure14}}</p>
+      <p *ngIf='recipe.strIngredient15!=""'class="card-text">{{recipe.strIngredient15}}  : {{recipe.strMeasure15}}</p>
+      <p *ngIf='recipe.strIngredient16!=""'class="card-text">{{recipe.strIngredient16}}  : {{recipe.strMeasure16}}</p>
+      <p *ngIf='recipe.strIngredient17!=""'class="card-text">{{recipe.strIngredient17}}  : {{recipe.strMeasure17}}</p>
+      <p *ngIf='recipe.strIngredient18!=""'class="card-text">{{recipe.strIngredient18}}  : {{recipe.strMeasure18}}</p>
+      <p *ngIf='recipe.strIngredient19!=""'class="card-text">{{recipe.strIngredient19}}  : {{recipe.strMeasure19}}</p>
+      <p *ngIf='recipe.strIngredient20!=""' class="card-text">{{recipe.strIngredient20}}  : {{recipe.strMeasure20}}</p>
+      </div>
+      <div class="col-md-6">
+        <h4>Instructions</h4>
+        <p class="card-text">{{recipe.strInstructions}}</p>
+      </div>
+    </div>
+    <button class="btn bg-dark text-light" (click)="addRecipe(recipe)" type="submit">Guardar receta</button>
+    </div>
+  </div>
+  </div>
+
+

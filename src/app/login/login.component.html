@@ -1,0 +1,42 @@
+<div *ngIf="!authService.isLoggedIn" class="container">
+  <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8 bg-light mt-5 ">
+          <form name="form" #f="ngForm" >
+              <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" class="form-control" id="email" name="email"
+                  [(ngModel)]="data.email" #email="ngModel" required pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                      <div *ngIf="email.hasError('required')" class="alert alert-danger">
+                              EMAIL IS REQUIRED
+                      </div>
+                      <div *ngIf="email.hasError('pattern')" class="alert alert-danger">
+                              EMAIL IS INVALID
+                      </div>
+                  </div> 
+              </div>
+              <div class="form-group">
+                  <label for="password">Password:</label>
+                  <input class="form-control" type="password" id="password" name="password"
+                  [(ngModel)]="data.password" #password="ngModel" required>
+                  <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                      <div *ngIf="password.hasError('required')" class="alert alert-danger">
+                        PASSWORD IS REQUIRED
+                      </div>
+                  </div>
+              </div>
+                  <div [class]="claseBootstrap">
+                      {{message}}
+                  </div>
+                  <div class="mb-5 mt-5 d-flex justify-content-between">
+              <button class="btn  btn-success" type="submit" (click)="onSubmit()" [disabled]="!f.valid">Login</button>
+              <button class="btn  btn-success" type="submit" [routerLink]="['/crear']">Crear cuenta</button>
+              <button class="btn btn-primary" (click)="loginWithFacebook()">
+                  <i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</button>
+              </div>        
+          </form>
+      </div>
+      <div class="col-2"></div>
+  </div>
+</div>

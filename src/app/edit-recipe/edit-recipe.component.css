@@ -1,0 +1,10 @@
+textarea {
+    resize: none;
+  }
+  .img-fluid{
+    width: 450px;
+    height: 450px;
+}
+.pad{
+    padding-top: 20px;
+}

@@ -1,0 +1,49 @@
+<div *ngIf="!show && recipe">
+  <div class="pad"></div>
+  <div class="card mb-3">
+    <div class="row">
+      <img class="card-img-top img-fluid col-md-12" src="{{recipe.imagen}}" alt="Card image cap">
+      <div class="card-body col-md-12 col">
+        <div class="col">
+          <h2 class="card-title">{{recipe.titulo}}</h2>
+        </div>
+        <div *ngIf="recipe.tipoComida" class="col">
+          <p>Type of food: {{recipe.tipoComida}}</p>
+          <p>Difficult: {{recipe.dificultad}}}</p>
+          <p>Portions: {{recipe.porciones}}</p>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Ingredients</h4>
+            <div *ngFor="let ingrediente of ingredientes">
+              <p class="card-text">{{ingrediente}}</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4>Instructions</h4>
+            <div *ngFor="let paso of pasos">
+              <p class="card-text">{{paso}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <a class="btn btn-secondary mt-2 col-md-4" [routerLink]="['/editRecipe', recipe.id]">Edit</a>
+      <button class="btn btn-secondary mt-2 col-md-4" (click)="deleteRecipe(recipe.id)">Delete</button>
+      <a class="btn btn-secondary mt-2 col-md-4" [href]="recipe.source" appExternalUrl>Source</a>
+    </div>
+  </div>
+</div>
+  <div *ngIf="show" class="splash">
+    <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>

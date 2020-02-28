@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <h1 class="m-4">Recipies</h1>
+            <div *ngIf="!show">
+                <div *ngIf="this.value.recipes==null">
+                    <p>No se han encontrado recetas</p>
+                </div>
+                <div class="row">
+                    <div *ngFor="let recipe of this.value.recipes">
+                        <div class="col-md-3 col">
+                            <div class="card">
+                                <img class="img-fluid m-0 p-0 mr-2" width="50px" src="{{recipe.strMealThumb}}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{recipe.strMeal}}</h5>
+                                    <p class="card-text">{{recipe.strCategory}}</p>
+                                </div>
+                                <div class="card-body">
+                                    <a [routerLink]="['/recipeA', recipe.idMeal]" class="card-link">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="show" class="splash">
+    <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>

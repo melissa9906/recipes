@@ -1,0 +1,67 @@
+<div class="pad"></div>
+<div class="card mb-3">
+  <div class="row">
+    <div class="card-body">
+    <form #f="ngForm">
+    <div class="col-md-12">
+      <div class="row">
+    <img *ngIf="recipe" class="card-img-top img-fluid col-md-6" src="{{recipe.imagen}}" alt="Recipe">
+    <div class="col-md-6 ">
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="card-title">Tittle</h4>
+          <input *ngIf="recipe" type="text" id="titulo" name="titulo" [(ngModel)]="recipeForm.titulo" #titulo="ngModel" class="form-control">
+        </div>
+        <div class="col-md-12">
+          <h4 class="card-title">Image URL</h4>
+          <input *ngIf="recipe" type="text" id="imagen" name="imagen" [(ngModel)]="recipeForm.imagen" #imagen="ngModel" class="form-control">
+        </div>
+        <div class="col-md-12">
+          <h4 class="card-title">Source</h4>
+          <input *ngIf="recipe" type="text" id="source" name="source" [(ngModel)]="recipeForm.source" #source="ngModel" class="form-control">
+        </div>
+        <div class="col-md-12">
+          <h4 class="card-title">Category</h4>
+          <input *ngIf="recipe" type="text" id="tipo" name="tipo" [(ngModel)]="recipeForm.tipo" #tipo="ngModel" class="form-control">
+        </div>
+        <div class="col-md-12">
+          <h4 class="card-title">Type of food</h4>
+          <input *ngIf="recipe" type="text" id="tipoComida" name="tipoComida" [(ngModel)]="recipeForm.tipoComida" #tipoComida="ngModel" class="form-control">
+        </div>
+        <div class="col-md-12">
+          <h4 class="card-title">Difficult</h4>
+          <input *ngIf="recipe" type="text" id="dificultad" name="dificultad" [(ngModel)]="recipeForm.dificultad" #dificultad="ngModel" class="form-control">
+        </div>
+        <div class="col-md-12">
+          <h4 class="card-title">Portion</h4>
+          <input *ngIf="recipe" type="text" id="porciones" name="porciones" [(ngModel)]="recipeForm.porciones" #porciones="ngModel" class="form-control">
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Ingredients</h4>
+          <h5>It's not necessary use all the inputs</h5>
+          <div *ngFor="let ingrediente of ingredientes; index as i">
+            <div *ngIf='ingrediente!=" "'>
+            <label for="label">Ingredient</label>
+            <input *ngIf="recipe" name="ingredientes{{i}}" [(ngModel)]="recipeForm.ingredientes[i]" type="text" class="form-control mt-2">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h4>Instructions</h4>
+          <div *ngFor="let paso of pasos">
+            <textarea *ngIf="recipe" class="form-control col-md-12" style="width: 450px; height: 450px;">{{paso}}</textarea>
+          </div>
+        </div>
+      </div>
+      <input *ngIf="recipe" type="text" id="id" name="id" [(ngModel)]="recipeForm.id" #id="ngModel" class="form-control mt-2" value="{{recipe.id}}" hidden>
+      <button class="btn btn-danger mt-2" type="submit" (click)="onSubmit(recipeForm)">Edit recipe</button>
+    </div>
+    </form>
+  </div>
+  </div>

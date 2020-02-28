@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <form #f="ngForm" class="mt-5">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" name="email" [(ngModel)]="data.email" #email="ngModel"
+                        required pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <div *ngIf="email.hasError('required')" class="alert alert-danger">
+                            EMAIL IS REQUIRED
+                        </div>
+                        <div *ngIf="email.hasError('pattern')" class="alert alert-danger">
+                            EMAIL IS INVALID
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input class="form-control" min="6" type="password" id="password" name="password" [(ngModel)]="data.password"
+                        #password="ngModel" required>
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                        <div *ngIf="password.hasError('required')" class="alert alert-danger">
+                            PASSWORD IS REQUIRED
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!f.valid" (click)="onSubmit()">Submit</button>
+            </form>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
